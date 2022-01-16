@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+}
+.Card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background-color: rgb(231, 224, 231);
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,0.125);
+    border-radius: 0.25rem;
+    width: 20rem;
+    word-wrap: break-word;
+    color: slategrey;
+    margin-bottom: 2vh;
+}
+
+.Card-Body{
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+}
+
+p{
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.Card-Text{
+    display: block;
+    margin-block-start: 1;
+    margin-block-end: 1;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    color:slategrey;
+}
+.Card-Titulo{
+    font-weight: 500;
+    line-height: 1.2;
+}

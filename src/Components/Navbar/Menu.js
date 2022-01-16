@@ -1,19 +1,23 @@
-import logo from '../img/logo1.jpg'
-import './NavBar.css'
-
+import logo from "../img/logo1.jpg";
+import "./NavBar.css";
+import CartWidget from "../CartWidget/CartWidget";
 
 const Menu = () => {
-    return (
-        
-        <nav class="menu">
-            <div ><img className="App-logo" src={logo} alt="logo" ></img></div>
-            <div className="menu-link">
-                <a className="link-item">Quienes Somos </a>
-                <a className="link-item">Catalogo </a>
-                <a className="link-item">Contacto </a>                
-            </div>
+  return (
+    <nav className="Menu">
+      <div>
+        <img className="App-logo" src={logo} alt="logo"></img>
+      </div>
+      <div className="Menu-link">
+        <p className="link-item">Quienes Somos </p>
+        <p className="link-item">Catalogo </p>
+        <p className="link-item">Contacto </p>
+        <CartWidget />
+        </div>
+        <div>
 
-</nav>
-    )
-}
+        </div>
+    </nav>
+  );
+};
 export default Menu;

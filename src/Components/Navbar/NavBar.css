@@ -20,11 +20,11 @@ nav{
     font-family: "Euphoria Script", cursive;
 }
 
-.menu{
+.Menu{
         background: rgb(187, 149, 162);
         display: block;
         width: 100vw;
-        height: 15vh;
+        height: 17vh;
         padding-left: 3vw;
         color:white;
 
@@ -32,10 +32,11 @@ nav{
 
 }
 
-.menu-link{
+.Menu-link{
     width: 50vw;
     display: flex;
     margin-left: 40vh;
+    color:white;
 
 }
 

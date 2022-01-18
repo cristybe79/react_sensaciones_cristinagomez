@@ -1,6 +1,10 @@
 *{
     box-sizing: border-box;
 }
+.Card-img{
+    width:10vw;
+}
+
 .Card{
     position: relative;
     display: flex;

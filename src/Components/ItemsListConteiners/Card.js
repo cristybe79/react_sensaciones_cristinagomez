@@ -7,7 +7,9 @@ import ItemsCounts from './itemsCount';
 function Card({ id, titulo, detalle, precio, img, stock }) {
   return (
     <div className="Card">
-      <div className="Card-img"><img src={img} style={{ width: "20rem" }}></img></div>
+      <div className="Card-Body">
+        <img className="Card-img" src={img}></img>
+      </div>
 
       <div className="Card-Body">
         <p className="Card-Text">Cod:{id}</p>

@@ -2,3 +2,10 @@
     color:slategrey;
 
 }
+.contenedor-Card{
+    display: flex;
+    flex-direction: row;
+    margin:10px;
+    padding:10px;
+
+}

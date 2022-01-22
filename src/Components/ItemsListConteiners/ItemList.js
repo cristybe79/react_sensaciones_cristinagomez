@@ -20,25 +20,25 @@ const ItemList = () => {
             .then((data) => setItemList(data))
             .catch((error) => console.log(error))
             .finally(() => setProcesando(false))
-    },[]);
+    }, []);
     return (
-      <div className="contenedor-Card">
-        {procesando ? (
-          <h2>Procesando...</h2>
-        ) : (
-          itemList.map((Prod) => (
-            <Card
-              key={Prod.id}
-              id={Prod.id}
-              titulo={Prod.titulo}
-              detalle={Prod.detalle}
-              precio={Prod.precio}
-              img={Prod.img}
-            />
-          ))
-        )}
+        <div className="contenedor-Card">
+            {procesando ? (
+                <h2>Procesando...</h2>
+            ) : (
+                itemList.map((Prod) => (
+                    <Card
+                        key={Prod.id}
+                        id={Prod.id}
+                        titulo={Prod.titulo}
+                        detalle={Prod.detalle}
+                        precio={Prod.precio}
+                        img={Prod.img}
+                    />
+                ))
+            )}
 
-      </div>
+        </div>
     );
 
 

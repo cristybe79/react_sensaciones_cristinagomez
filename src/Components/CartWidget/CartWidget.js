@@ -1,4 +1,4 @@
-import IconoCartWidget from "../img/IconoCarrito.svg";
+import IconoCartWidget from "../../img/IconoCarrito.svg";
 import "./CartWidget.css";
 
 function CartWidget() {

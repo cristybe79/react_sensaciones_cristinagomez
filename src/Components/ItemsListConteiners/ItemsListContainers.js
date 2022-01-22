@@ -10,8 +10,7 @@ function ItemsListConteiner() {
     return (
         <>
             <div className="contenedor-Card">
-                <ItemList/>
-
+                <ItemList/>        
             </div>
         </>
     );

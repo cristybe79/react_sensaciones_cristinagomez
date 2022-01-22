@@ -6,7 +6,8 @@ import "./ItemsListConteiners.css";
 
 
 const ItemList = () => {
-    const [itemList, setItemList] = useState([{Catalogo}])
+    const [itemList, setItemList] = useState([{}])
+    const [procesando, setProcesando] = useState(false);
 
     useEffect(() => {
         function traeCatalogo() {
@@ -14,18 +15,32 @@ const ItemList = () => {
                 setTimeout(() => resolve(Catalogo), 2000);
             })
         }
+        setProcesando(true);
         traeCatalogo()
             .then((data) => setItemList(data))
             .catch((error) => console.log(error))
-    }, []);
-        return (
-        <div>
-            {itemList.map((Prod) => (
-                <Card className="contenedor-Card" key={Prod.id} titulo={Prod.titulo} detalle={Prod.detalle} precio={Prod.precio} img={Prod.img}/>
-            ))}
-        </div>
-        );
-            
+            .finally(() => setProcesando(false))
+    },[]);
+    return (
+      <div className="contenedor-Card">
+        {procesando ? (
+          <h2>Procesando...</h2>
+        ) : (
+          itemList.map((Prod) => (
+            <Card
+              key={Prod.id}
+              id={Prod.id}
+              titulo={Prod.titulo}
+              detalle={Prod.detalle}
+              precio={Prod.precio}
+              img={Prod.img}
+            />
+          ))
+        )}
+
+      </div>
+    );
+
 
 
 }

@@ -1,0 +1,109 @@
+{
+    "catalogo":[
+    {
+        "id": "01",
+        "titulo": "Pulsera",
+        "detalle": "Hilo Roja perlitas doradas",
+        "precio": 120,
+        "img": "../src/img/img1.jpg"
+    },
+    {
+        "id": "02",
+        "titulo": "Pulsera",
+        "detalle": "Hilo Negra -infinito",
+        "precio": 120,
+        "img": "../src/img/img1.jpg"
+    },
+    {
+        "id": "03",
+        "titulo": "Pulseras",
+        "detalle": "Combinadas Blanca y Negra",
+        "precio": 250,
+        "img": "../src/img/img1.jpg"
+    },
+    {
+        "id": "04",
+        "titulo": "Pulsera",
+        "detalle": "Plata dije corazon",
+        "precio": 300,
+        "img": "../src/img/img1.jpg"
+    },
+    {
+        "id": "05",
+        "titulo": "Pulsera",
+        "detalle": "Plata denario",
+        "precio": 300,
+        "img": "../src/img/img1.jpg"
+    },
+    {
+        "id": "06",
+        "titulo": "Tobillera",
+        "detalle": "Plata hojas",
+        "precio": 300,
+        "img": "../src/img/img1.jpg"
+    },
+    {
+        "id": "07",
+        "titulo": "Tobillera",
+        "detalle": "Plata Corazones",
+        "precio": 300,
+        "img":"../src/img/img1.jpg"
+    },
+    {
+        "id": "08",
+        "titulo": "Tobillera",
+        "detalle": "Dorada Estrellas",
+        "precio": 300,
+        "img":"../src/img/img1.jpg"
+    },
+    {
+        "id": "09",
+        "titulo": "Tobillera",
+        "detalle": "Hilo Negra",
+        "precio": 300,
+        "img":"../src/img/img1.jpg"
+    },
+    {
+        "id": "10",
+        "titulo": "Tobillera",
+        "detalle": "Hilo Rojo y PLata",
+        "precio": 300,
+        "img": "../src/img/img1.jpg"
+    },
+    {
+        "id": "11",
+        "titulo": "Pañuelo",
+        "detalle": "Seda Blando con rojo y azul",
+        "precio": 1500,
+        "img": "../src/img/img1.jpg"
+    },
+    {
+        "id": "12",
+        "titulo": "Pañuelo",
+        "detalle": "Seda Azul",
+        "precio": 1100,
+        "img": "../src/img/img1.jpg"
+    },
+    {
+        "id": "13",
+        "titulo": "Pañuelo",
+        "detalle": "Seda Celeste",
+        "precio": 1200,
+        "img": "../src/img/img1.jpg"
+    },
+    {
+        "id": "14",
+        "titulo": "Pañuelo",
+        "detalle": "Gasa Blanco estampado",
+        "precio": 1000,
+        "img": "../src/img/img1.jpg"
+    },
+    {
+        "id": "15",
+        "titulo": "Pañuelo",
+        "detalle": "Gasa Floral",
+        "precio": 1000,
+        "img": "../src/img/img1.jpg"
+    }
+    ]
+}

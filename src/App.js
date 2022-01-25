@@ -1,15 +1,16 @@
 import './App.css';
 import NavBar from './Components/Navbar/NavBar';
 import ItemsListConteiner from './Components/ItemsListConteiners/ItemsListContainers';
-import ItemList from './Components/ItemsListConteiners/ItemList';
+import ItemDetailContainer from './Components/itemDetailContainer/ItemDetailContainer.js';
 
 function App() {
   return (
     <div className="App">
-        <header className="App-header">
+      <header className="App-header">
         <NavBar />
         <ItemsListConteiner />
-    
+        <ItemDetailContainer />
+
       </header>
     </div>
   );

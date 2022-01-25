@@ -1,6 +1,5 @@
 import React from 'react';
 import './Card.css';
-import ItemsCounts from './itemsCount';
 
 
 
@@ -17,7 +16,7 @@ function Card({ id, titulo, detalle, precio, img, stock }) {
         <p className="Card-Text">{detalle}</p>
         <p className="Card-Text">${precio}</p>
       </div>
-      <ItemsCounts />
+
     </div>
   );
 }

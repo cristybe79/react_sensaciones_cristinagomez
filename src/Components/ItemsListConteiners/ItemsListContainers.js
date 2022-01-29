@@ -1,7 +1,6 @@
 
 import "./ItemsListConteiners.css";
 import "./Card.css";
-
 import ItemList from "./ItemList";
 
 

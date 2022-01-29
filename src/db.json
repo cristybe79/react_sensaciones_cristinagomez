@@ -1,109 +1,121 @@
+
 {
     "catalogo":[
     {
-        "id": "01",
+        "id": "1",
         "titulo": "Pulsera",
         "detalle": "Hilo Roja perlitas doradas",
+        "descripcion":"descripcion descripcion descripcion",
         "precio": 120,
-        "img": "../src/img/img1.jpg"
+        "img": "../images/img1.jpg"
     },
     {
-        "id": "02",
+        "id": "2",
         "titulo": "Pulsera",
         "detalle": "Hilo Negra -infinito",
+        "descripcion":"descripcion descripcion descripcion",
         "precio": 120,
-        "img": "../src/img/img1.jpg"
+        "img": "../images/img2.jpg"
     },
     {
-        "id": "03",
+        "id": "3",
         "titulo": "Pulseras",
         "detalle": "Combinadas Blanca y Negra",
+        "descripcion":"descripcion descripcion descripcion",
         "precio": 250,
-        "img": "../src/img/img1.jpg"
+        "img": "../images/img3.jpg"
     },
     {
-        "id": "04",
+        "id": "4",
         "titulo": "Pulsera",
         "detalle": "Plata dije corazon",
+        "descripcion":"descripcion descripcion descripcion",
         "precio": 300,
-        "img": "../src/img/img1.jpg"
+        "img": "../images/imgpl1.jpg"
     },
     {
-        "id": "05",
+        "id": "5",
         "titulo": "Pulsera",
         "detalle": "Plata denario",
+        "descripcion":"descripcion descripcion descripcion",
         "precio": 300,
-        "img": "../src/img/img1.jpg"
+        "img": "../images/imgpl2.jpg"
     },
     {
-        "id": "06",
+        "id": "6",
         "titulo": "Tobillera",
         "detalle": "Plata hojas",
+        "descripcion":"descripcion descripcion descripcion",
         "precio": 300,
-        "img": "../src/img/img1.jpg"
+        "img": "../images/tb001.jpeg"
     },
     {
-        "id": "07",
+        "id": "7",
         "titulo": "Tobillera",
         "detalle": "Plata Corazones",
+        "descripcion":"descripcion descripcion descripcion",
         "precio": 300,
-        "img":"../src/img/img1.jpg"
+        "img":"../images/tb002.jpg"
     },
     {
-        "id": "08",
+        "id": "8",
         "titulo": "Tobillera",
         "detalle": "Dorada Estrellas",
+        "descripcion":"descripcion descripcion descripcion",
         "precio": 300,
-        "img":"../src/img/img1.jpg"
+        "img":"../images/tb003.png"
     },
     {
-        "id": "09",
+        "id": "9",
         "titulo": "Tobillera",
         "detalle": "Hilo Negra",
+        "descripcion":"descripcion descripcion descripcion",
         "precio": 300,
-        "img":"../src/img/img1.jpg"
+        "img":"../images/tb004.jpg"
     },
     {
         "id": "10",
         "titulo": "Tobillera",
         "detalle": "Hilo Rojo y PLata",
+        "descripcion":"descripcion descripcion descripcion",
         "precio": 300,
-        "img": "../src/img/img1.jpg"
+        "img": "../images/tb005.jpg"
     },
     {
         "id": "11",
         "titulo": "Pañuelo",
         "detalle": "Seda Blando con rojo y azul",
+        "descripcion":"descripcion descripcion descripcion",
         "precio": 1500,
-        "img": "../src/img/img1.jpg"
+        "img": "../images/pan001.jpg"
     },
     {
         "id": "12",
         "titulo": "Pañuelo",
-        "detalle": "Seda Azul",
+        "detalle": "Seda Azul","descripcion":"descripcion descripcion descripcion",
         "precio": 1100,
-        "img": "../src/img/img1.jpg"
+        "img": "../images/pan002.jpg"
     },
     {
         "id": "13",
         "titulo": "Pañuelo",
-        "detalle": "Seda Celeste",
+        "detalle": "Seda Celeste","descripcion":"descripcion descripcion descripcion",
         "precio": 1200,
-        "img": "../src/img/img1.jpg"
+        "img": "../images/pan003.jpg"
     },
     {
         "id": "14",
         "titulo": "Pañuelo",
-        "detalle": "Gasa Blanco estampado",
+        "detalle": "Gasa Blanco estampado","descripcion":"descripcion descripcion descripcion",
         "precio": 1000,
-        "img": "../src/img/img1.jpg"
+        "img": "../images/pan004.jpg"
     },
     {
         "id": "15",
         "titulo": "Pañuelo",
-        "detalle": "Gasa Floral",
+        "detalle": "Gasa Floral","descripcion":"descripcion descripcion descripcion",
         "precio": 1000,
-        "img": "../src/img/img1.jpg"
+        "img": "../images/pan005.jpg"
     }
     ]
 }

@@ -1,25 +1,27 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import './Card.css';
 
 
+function Card({ prod }) {
+  const navigate = useNavigate();
 
-function Card({ id, titulo, detalle, precio, img, stock }) {
   return (
     <div className="Card">
       <div className="Card-Body">
-        <img className="Card-img" src={img}></img>
+        <img className="Card-img" src={prod.img} alt={prod.titulo}></img>
       </div>
 
       <div className="Card-Body">
-        <p className="Card-Text">Cod:{id}</p>
-        <h4 className="Card-Titulo">{titulo}</h4>
-        <p className="Card-Text">{detalle}</p>
-        <p className="Card-Text">${precio}</p>
+        <h4 className="Card-Titulo">{prod.titulo}</h4>
+        <p className="Card-Text">{prod.detalle}</p>
+        <p className="Card-Text">${prod.precio}</p>
+        <p className="Card-Text">{prod.id}</p>
       </div>
-
+      <Button onClick={() => navigate(`/catalogo/${prod.id}`)}>Ver mas</Button>
     </div>
   );
 }
-
 
 export default Card;

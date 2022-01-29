@@ -1,4 +1,6 @@
-
+*{
+  text-decoration: none;
+}
 .App-header {
   background-color: rgb(245, 234, 238);
   display: flex;

@@ -1,45 +1,47 @@
 import { useState, useEffect } from "react";
-import Catalogo from "./Catalogo";
 import Card from "./Card";
 import "./Card.css";
 import "./ItemsListConteiners.css";
 
 
+
 const ItemList = () => {
-    const [itemList, setItemList] = useState([{}])
+
+    const [itemList, setItemList] = useState([]);
     const [procesando, setProcesando] = useState(false);
+    const [error, setError] = useState(null)
+
 
     useEffect(() => {
-        function traeCatalogo() {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => resolve(Catalogo), 2000);
-            })
-        }
-        setProcesando(true);
-        traeCatalogo()
+        const URL = `http://localhost:3001/catalogo`;
+        setProcesando(true)
+        fetch(URL)
+            .then((res) => res.json())
             .then((data) => setItemList(data))
-            .catch((error) => console.log(error))
-            .finally(() => setProcesando(false))
+            .catch((err) => setError(err))
+            .finally(() => setProcesando(false));
     }, []);
-    return (
-        <div className="contenedor-Card">
-            {procesando ? (
-                <h2>Procesando...</h2>
-            ) : (
-                itemList.map((Prod) => (
-                    <Card
-                        key={Prod.id}
-                        id={Prod.id}
-                        titulo={Prod.titulo}
-                        detalle={Prod.detalle}
-                        precio={Prod.precio}
-                        img={Prod.img}
-                    />
-                ))
-            )}
+    if (procesando) {
+        return <h2>Procesando...</h2>;
+    } else if (error) {
+        return <h3>Error de Proceso</h3>
+    } else
+        return (
+            <div className="contenedor-Card">
+                {
+                    itemList.map((Prod) => (
+                        <Card
+                            key={Prod.id}
+                            prod={Prod}
+                        />
+                    ))
+                }
 
-        </div>
-    );
+
+
+            </div>
+        );
+
 
 
 

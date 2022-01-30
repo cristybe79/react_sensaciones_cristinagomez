@@ -58,3 +58,13 @@ p{
 
 
 }
+
+.btn-cat{
+    margin-left: 5vh;
+    border: none;
+    background-color:lightcoral;
+    color:lightcyan;
+    border-radius: 5px;
+    height: 4vh;
+    width: auto;
+}

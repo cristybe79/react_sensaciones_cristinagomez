@@ -1,0 +1,9 @@
+.link-catalogo{
+    margin-left: 2vh;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color:rgb(212, 164, 181) ;
+    border-radius: 5px;
+    padding: 0.5rem;
+    color:white
+}

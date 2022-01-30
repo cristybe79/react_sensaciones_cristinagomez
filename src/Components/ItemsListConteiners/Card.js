@@ -19,7 +19,12 @@ function Card({ prod }) {
         <p className="Card-Text">${prod.precio}</p>
         <p className="Card-Text">{prod.id}</p>
       </div>
-      <Button onClick={() => navigate(`/catalogo/${prod.id}`)}>Ver mas</Button>
+      <Button
+        variant="secondary"
+        onClick={() => navigate(`/catalogo/${prod.id}`)}
+      >
+        Ver mas
+      </Button>
     </div>
   );
 }

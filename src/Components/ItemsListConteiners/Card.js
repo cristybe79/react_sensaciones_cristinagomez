@@ -17,7 +17,8 @@ function Card({ prod }) {
         <h4 className="Card-Titulo">{prod.titulo}</h4>
         <p className="Card-Text">{prod.detalle}</p>
         <p className="Card-Text">${prod.precio}</p>
-        <p className="Card-Text">{prod.id}</p>
+        <p className="Card-Text">Cod: {prod.id}</p>
+        <p className="Card-Text">Stock {prod.stock}</p>
       </div>
       <Button
         variant="secondary"

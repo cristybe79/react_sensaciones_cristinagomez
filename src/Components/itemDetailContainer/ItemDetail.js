@@ -24,15 +24,16 @@ const ItemDetail = () => {
             {isLoanding ? (
                 <h2>Procesando...</h2>
             ) : (
-                itemListDetail.map((Prod) => (
+                itemListDetail.map((prod) => (
                     <CardDetail
-                        key={Prod.id}
-                        id={Prod.id}
-                        titulo={Prod.titulo}
-                        detalle={Prod.detalle}
-                        precio={Prod.precio}
-                        img={Prod.img}
-                        descripcion={Prod.descripcion}
+                        key={prod.id}
+                        id={prod.id}
+                        titulo={prod.titulo}
+                        detalle={prod.detalle}
+                        precio={prod.precio}
+                        img={prod.img}
+                        stock={prod.stock}
+                        descripcion={prod.descripcion}
                     />
                 ))
             )}

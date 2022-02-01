@@ -4,9 +4,21 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-function CardDetail({ id, titulo, detalle, precio, img, stock, descripcion }) {
+function CardDetail({ id, titulo, detalle, precio, img, stock, descripcion,onAdd }) {
   const [conta, setConta] = useState(0)
   const [stockRes, setStockRes] = useState(stock)
+
+
+  const agregarItem = () => {
+    const nuevoItem = {
+    id,titulo, precio
+
+    }
+
+  }
+
+
+
   return (
     <div className="CardDetail">
       <div className="Card-BodyDetail">
@@ -32,10 +44,16 @@ function CardDetail({ id, titulo, detalle, precio, img, stock, descripcion }) {
           stockRes={stockRes}
           setStockRest={setStockRes}
           setConta={setConta}
+          onAdd={onAdd}
         />
-        <Link className="Card-TituloDetail" to="/catalogo">
-          Volver al Catalogo
+        <div className="seccion-btn">
+          <Link to="/Carrito">
+            <Button variant="secondary">Ver Carrito</Button>
+          </Link>
+        <Link to="/catalogo">
+          <Button variant="secondary"> Volver al Catalogo</Button>
         </Link>
+        </div>
       </div>
     </div>
   );

@@ -9,6 +9,7 @@ import CatalogoPulsera from './pages/CatalogoPulsera';
 import CatalogTobillera from './pages/CatalogoTobillera';
 import CatalogoPanuelo from './pages/CatalogoPanuelo';
 import Error404 from './pages/Error404';
+import Carrito from './pages/Carrito'
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route path="catalogoTobillera" element={<CatalogTobillera />} />
             <Route path="catalogoPanuelo" element={<CatalogoPanuelo />} />
           </Route>
+          <Route path="/Carrito" element={<Carrito/>}></Route>
           <Route path="*" element={<Error404 />} />
         </Route>
       </Routes>

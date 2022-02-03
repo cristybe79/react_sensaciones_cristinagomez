@@ -1,43 +1,63 @@
-import { useState, useEffect } from "react";
-import Catalogo from "../ItemsListConteiners/Catalogo";
-import CardDetail from "./CardDetail";
-import "./ItemDetailContainer.css"
+import ItemsCount from "./itemsCount";
+import "./ItemDetailContainer.css";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
-const ItemDetail = () => {
-    const [itemListDetail, setItemDetail] = useState([{}]);
-    const [isLoanding, setisLoanding] = useState(false);
+function ItemDetail({ product }) {
 
-    useEffect(() => {
-        function traeDetalle() {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => resolve(Catalogo), 2000);
-            });
-        }
-        setisLoanding(true);
-        traeDetalle()
-            .then((data) => setItemDetail(data))
-            .catch((error) => console.log(error))
-            .finally(() => setisLoanding(false));
-    }, []);
-    return (
-        <div className="contenedor-Card">
-            {isLoanding ? (
-                <h2>Procesando...</h2>
-            ) : (
-                itemListDetail.map((prod) => (
-                    <CardDetail
-                        key={prod.id}
-                        id={prod.id}
-                        titulo={prod.titulo}
-                        detalle={prod.detalle}
-                        precio={prod.precio}
-                        img={prod.img}
-                        stock={prod.stock}
-                        descripcion={prod.descripcion}
-                    />
-                ))
-            )}
+
+
+  const [agregado, setAgregado] = useState(false);
+
+  const onAdd = () => {
+    setAgregado(true);
+  };
+  const desAgregar = () => {
+    setAgregado(false);
+
+  }
+
+
+  return (
+    <div className="CardDetail">
+      <div className="Card-BodyDetail">
+        <img className="Card-imgDetail" src={product.img}></img>
+      </div>
+
+      <div className="Card-BodyDetail">
+        <p className="Card-TextDetail">Cod:{product.id}</p>
+        <h3 className="Card-TituloDetail">{product.titulo}</h3>
+        <h4 className="Card-TituloDetail">{product.detalle}</h4>
+        <p className="Card-TextDetail">{product.descripcion}</p>
+        <p className="Card-TextDetail">${product.precio}</p>
+        <p className="Card-TextDetail">{product.stock}</p>
+        <Button variant="primary">Comprar</Button>
+
+        <h5 className="Card-TituloDetail">Condiciones de Envio</h5>
+        <p className="Card-TextDetail">- Envios a todo el pais</p>
+        <p className="Card-TextDetail">- Costos: consultar segun tabla</p>
+        <p className="Card-TextDetail">
+          - Devolucion: dentro de las 48hs de llegada de la mercaderia
+        </p>
+        <div>
+          {agregado ? (
+            <Link to="/Carrito">
+              <Button variant="secondary">Ver Carrito </Button>
+            </Link>
+          ) : (
+            <ItemsCount stock={product.stock} inicial={1} onAdd={onAdd} />
+          )}
         </div>
-    );
-};
-export default ItemDetail
+        <div className="seccion-btn">
+          <Button onClick={desAgregar}>Vaciar</Button>
+          <Link to="/catalogo">
+            <Button variant="secondary"> Volver al Catalogo</Button>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default ItemDetail;

@@ -1,20 +1,19 @@
 
 import './itemsCount.css';
-import { Button } from 'react-bootstrap'
-import { useState } from 'react';
 
-const ItemsCount = ({ stock, inicial, onAdd }) => {
 
-    const [conta, setConta] = useState(inicial)
+const ItemsCount = ({ stock, conta, setConta }) => {
+
+
 
     const restar = () => {
         if (conta > 0) {
-            setConta(conta - 1)
+            setConta((prev) => prev - 1)
         }
     }
     const sumar = () => {
         if (conta < stock) {
-            setConta(conta + 1)
+            setConta((prev) => prev + 1);
         }
     }
 
@@ -32,9 +31,7 @@ const ItemsCount = ({ stock, inicial, onAdd }) => {
             </div>
             <div className="seccion-btn">
 
-                <Button variant="secondary" onClick={() => onAdd()}>
-                    Agregar al carrito
-                </Button>
+
             </div>
         </div>
     );

@@ -1,4 +1,4 @@
-import logo from "../../img/logo1.jpg";
+import logo from "../../img/sensaciones (2).png";
 import "./NavBar.css";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link } from "react-router-dom";
@@ -23,7 +23,8 @@ const Menu = () => {
           </li>
         </ul>
 
-        <CartWidget />
+        <CartWidget className="Menu-link" />
+
       </div>
     </nav>
   );

@@ -10,10 +10,13 @@ import CatalogTobillera from './pages/CatalogoTobillera';
 import CatalogoPanuelo from './pages/CatalogoPanuelo';
 import Error404 from './pages/Error404';
 import Carrito from './pages/Carrito'
+import { CartContextProvider } from './Context/CartContext';
 
 
 function App() {
   return (
+    <CartContextProvider>
+
     <BrowserRouter>
       <NavBar />
       <Routes>
@@ -32,6 +35,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+    </CartContextProvider>
   );
 }
 

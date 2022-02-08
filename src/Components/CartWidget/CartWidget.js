@@ -8,21 +8,20 @@ function CartWidget() {
     const { cantidadItems } = useContext(CartContext)
 
     return (
-        <>
-            <div style={{ visibility: cantidadItems() < 0 ? "hidden" : "visible" }}>
-                <div>
-                    <span></span>
-                    <Link to="/carrito">
-                        <img
-                            src={IconoCartWidget}
-                            className="Icono-Cart"
-                            alt="IconoCart"
-                        />
-                        {cantidadItems()}
-                    </Link>
-                </div>
-            </div>
-        </>
+      <>
+        <div style={{ visibility: cantidadItems() < 0 ? "hidden" : "visible" }}>
+          <div className="link-item">
+            <Link to="/carrito">
+              {cantidadItems()}
+              <img
+                src={IconoCartWidget}
+                className="Icono-Cart"
+                alt="IconoCart"
+              />
+            </Link>
+          </div>
+        </div>
+      </>
     );
 }
 

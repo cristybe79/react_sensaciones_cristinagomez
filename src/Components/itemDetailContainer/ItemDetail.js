@@ -30,10 +30,10 @@ function ItemDetail({ id, titulo, precio, detalle, descripcion, stock, img }) {
     setAgregado(false);
 
   }
-  const styles = {
-    btnAgregar: estaEnCarrito(id) ? "btn btn-danger m-2" : "btn btn-success m-2",
-    btnTerminar: `btn btn-success ${!estaEnCarrito(id) && "desactivado"}`,
-  };
+  // const styles = {
+  //   btnAgregar: estaEnCarrito(id) ? "btn btn-danger m-2" : "btn btn-success m-2",
+  //   btnTerminar: `btn btn-success ${!estaEnCarrito(id) && "desactivado"}`,
+  // };
 
   return (
     <div className="CardDetail">
@@ -62,19 +62,19 @@ function ItemDetail({ id, titulo, precio, detalle, descripcion, stock, img }) {
             conta={conta}
             setConta={setConta}
           />
-          <button
+          <Button
             variant="secondary"
             disabled={conta === 0}
-            className={styles.btnAgregar}
+            // className={styles.btnAgregar}
             onClick={onAdd}
           >
             Agregar
-          </button>
+          </Button>
         </div>
 
         <div>
-          <Link to="/Carrito" className={styles.btnTerminar}>
-            Comprar
+          <Link to="/Carrito">
+            <Button >Comprar</Button>
           </Link>
           <Link to="/catalogo">
             <Button variant="secondary"> Volver al Catalogo</Button>

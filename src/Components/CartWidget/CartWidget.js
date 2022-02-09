@@ -5,14 +5,14 @@ import "./CartWidget.css";
 import { CartContext } from "../../Context/CartContext";
 
 function CartWidget() {
-    const { cantidadItems } = useContext(CartContext)
+    const { contaItems } = useContext(CartContext);
 
     return (
       <>
-        <div style={{ visibility: cantidadItems() < 0 ? "hidden" : "visible" }}>
+        <div style={{ visibility: contaItems() < 0 ? "hidden" : "visible" }}>
           <div className="link-item">
             <Link to="/carrito">
-              {cantidadItems()}
+              {contaItems()}
               <img
                 src={IconoCartWidget}
                 className="Icono-Cart"

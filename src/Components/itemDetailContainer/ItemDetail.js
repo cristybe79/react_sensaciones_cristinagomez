@@ -7,47 +7,34 @@ import { useState, useContext } from "react";
 import { CartContext } from "../../Context/CartContext.js"
 
 
-function ItemDetail({ id, titulo, precio, detalle, descripcion, stock, img }) {
-  const { addCarrito, agregaCarrito, estaEnCarrito, removeCarrito } = useContext(CartContext);
+function ItemDetail({ product }) {
+  const { agregaCarrito } = useContext(CartContext);
 
 
   const [inicial] = useState(0)
   const [conta, setConta] = useState(inicial);
   const [agregado, setAgregado] = useState(false);
-  const onAdd = () => {
+  const onAdd = (cantidad) => {
 
-    const nuevoItem = {
-      id, titulo, detalle, precio, conta, img
+    agregaCarrito(product, cantidad);
+    setAgregado(true);
 
-    }
-    if (conta > 0) {
 
-      agregaCarrito(nuevoItem);
-      setAgregado(true);
-    }
   };
-  const desAgregar = () => {
-    setAgregado(false);
-
-  }
-  // const styles = {
-  //   btnAgregar: estaEnCarrito(id) ? "btn btn-danger m-2" : "btn btn-success m-2",
-  //   btnTerminar: `btn btn-success ${!estaEnCarrito(id) && "desactivado"}`,
-  // };
 
   return (
     <div className="CardDetail">
       <div className="Card-BodyDetail">
-        <img className="Card-imgDetail" src={img} alt={titulo}></img>
+        <img className="Card-imgDetail" src={product.img} alt={product.titulo}></img>
       </div>
 
       <div className="Card-BodyDetail">
-        <p className="Card-TextDetail">Cod:{id}</p>
-        <h3 className="Card-TituloDetail">{titulo}</h3>
-        <h4 className="Card-TituloDetail">{detalle}</h4>
-        <p className="Card-TextDetail">{descripcion}</p>
-        <p className="Card-TextDetail">${precio}</p>
-        <p className="Card-TextDetail">{stock}</p>
+        <p className="Card-TextDetail">Cod:{product.id}</p>
+        <h3 className="Card-TituloDetail">{product.titulo}</h3>
+        <h4 className="Card-TituloDetail">{product.detalle}</h4>
+        <p className="Card-TextDetail">{product.descripcion}</p>
+        <p className="Card-TextDetail">${product.precio}</p>
+        <p className="Card-TextDetail">{product.stock}</p>
 
         <h5 className="Card-TituloDetail">Condiciones de Envio</h5>
         <p className="Card-TextDetail">- Envios a todo el pais</p>
@@ -57,7 +44,7 @@ function ItemDetail({ id, titulo, precio, detalle, descripcion, stock, img }) {
         </p>
         <div>
           <ItemsCount
-            stock={stock}
+            stock={product.stock}
             inicial={inicial}
             conta={conta}
             setConta={setConta}
@@ -65,7 +52,6 @@ function ItemDetail({ id, titulo, precio, detalle, descripcion, stock, img }) {
           <Button
             variant="secondary"
             disabled={conta === 0}
-            // className={styles.btnAgregar}
             onClick={onAdd}
           >
             Agregar

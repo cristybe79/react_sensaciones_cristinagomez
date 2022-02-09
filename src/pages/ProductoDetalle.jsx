@@ -24,8 +24,7 @@ const ProductoDetalle = () => {
     return (
         <div>
             <h1>{product.titulo}</h1>
-            <ItemDetail id={product.id} precio={product.precio} titulo ={product.titulo} descripcion ={product.descripcion} stock={product.stock} img={product.img} detalle={product.detalle}
-
+            <ItemDetail product={product}
 
             />
 

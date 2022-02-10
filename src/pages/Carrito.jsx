@@ -7,11 +7,17 @@ import { CartContext } from "../Context/CartContext"
 
 
 const Carrito = () => {
-    const { addCarrito, removeCarrito, totalCarrito } = useContext(CartContext)
+    const { addCarrito, removeCarrito, totalCarrito, vaciarCarrito,  } = useContext(CartContext)
     
 
     return (
         <div>
+            {
+                addCarrito.length === 0 ? <>
+                    <h2>No hay Productos en el Carrito</h2>
+                    <Link to="/"><Button>Ir al Catalogo</Button></Link>
+                </>:
+                    <>
             <h2>Resumen de Compra</h2>
             {addCarrito.map((comprado) =>
             (
@@ -20,8 +26,8 @@ const Carrito = () => {
                     <Row>
                     <Col>{comprado.titulo}</Col>
                     <Col>{comprado.detalle}</Col>
-                    <Col>{comprado.conta}</Col>
-                    <Col>$ {comprado.precio * comprado.conta}</Col>
+                    <Col>{comprado.cantidad}</Col>
+                    <Col>$ {comprado.precio * comprado.cantidad}</Col>
                     <Col><Button onClick={() => removeCarrito(comprado.id)}>eliminar</Button></Col>
                     </Row>
                     </Container>
@@ -34,7 +40,12 @@ const Carrito = () => {
                     </Row>
             </Container>
             <Link to="/catalogo"><Button variant="secondary">volver al catalogo</Button></Link>
+            <Button onClick={()=>vaciarCarrito()}>Limpiar</Button>
+                    </>
+}
         </div>
+
+
     )
 
 

@@ -9,17 +9,14 @@ function CartWidget() {
 
     return (
       <>
-        <div style={{ visibility: contaItems() < 0 ? "hidden" : "visible" }}>
-          <div className="link-item">
-            <Link to="/carrito">
-              {contaItems()}
-              <img
-                src={IconoCartWidget}
-                className="Icono-Cart"
-                alt="IconoCart"
-              />
-            </Link>
-          </div>
+        <div>
+          <Link
+            to="/carrito"
+            style={{ visibility: contaItems() === 0 ? "hidden" : "visible" }}
+          >
+            {contaItems()}
+            <img src={IconoCartWidget} className="Icono-Cart" alt="IconoCart" />
+          </Link>
         </div>
       </>
     );

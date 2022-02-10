@@ -2,30 +2,37 @@ import ItemsCount from "./itemsCount";
 import "./ItemDetailContainer.css";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useContext,useState } from "react";
 
-import { CartContext } from "../../Context/CartContext.js"
+import { CartContext } from "../../Context/CartContext.js";
 
+function ItemDetail({ product}) {
 
-function ItemDetail({ product }) {
-  const { agregaCarrito } = useContext(CartContext);
+  const { agregaCarrito,estaEnCarrito } = useContext(CartContext);
 
-
-  const [inicial] = useState(0)
-  const [conta, setConta] = useState(inicial);
-  const [agregado, setAgregado] = useState(false);
-  const onAdd = (cantidad) => {
-
-    agregaCarrito(product, cantidad);
-    setAgregado(true);
-
+    const [inicial] = useState(0);
+    const [conta, setConta] = useState(inicial);
+    const [agregado, setAgregado] = useState(false);
+    const onAdd = (cantidad) => {
+      agregaCarrito(product, cantidad);
+      setAgregado(true);
 
   };
+  
+  // const estilo = {
+  //   btnAgrego: estaEnCarrito(id) ? "btn btn-danger m-2" : "btn btn-success m-2",
+  //   btnTerminar: `btn btn-success ${!estaEnCarrito(id) && "desactivado"}`,
+  // };
+
 
   return (
     <div className="CardDetail">
       <div className="Card-BodyDetail">
-        <img className="Card-imgDetail" src={product.img} alt={product.titulo}></img>
+        <img
+          className="Card-imgDetail"
+          src={product.img}
+          alt={product.titulo}
+        ></img>
       </div>
 
       <div className="Card-BodyDetail">
@@ -42,30 +49,19 @@ function ItemDetail({ product }) {
         <p className="Card-TextDetail">
           - Devolucion: dentro de las 48hs de llegada de la mercaderia
         </p>
-        <div>
-          <ItemsCount
-            stock={product.stock}
-            inicial={inicial}
-            conta={conta}
-            setConta={setConta}
-          />
-          <Button
-            variant="secondary"
-            disabled={conta === 0}
-            onClick={onAdd}
-          >
-            Agregar
-          </Button>
-        </div>
-
-        <div>
+        {agregado ? (
           <Link to="/Carrito">
-            <Button >Comprar</Button>
+            <Button>Terminar Compra</Button>
           </Link>
-          <Link to="/catalogo">
-            <Button variant="secondary"> Volver al Catalogo</Button>
-          </Link>
+        ) : (<div>
+            
+          <ItemsCount stock={product.stock} inicial={1} onClick={onAdd} conta={conta} setConta={setConta}/>
+          <button className="btn btn-secondary p-2" disabled={conta===0} onClick={()=>onAdd(conta)}>Agregar</button>
         </div>
+        )}
+        <Link to="/catalogo">
+          <Button variant="secondary"> Volver al Catalogo</Button>
+        </Link>
       </div>
     </div>
   );

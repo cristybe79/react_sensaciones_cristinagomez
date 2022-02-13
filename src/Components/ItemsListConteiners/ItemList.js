@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Card from "./Card";
 import "./Card.css";
 import "./ItemsListConteiners.css";
-
+import { getFirestore } from "../../firebase/index"
+import { Dropdown } from "react-bootstrap"
 
 
 
@@ -15,13 +16,34 @@ const ItemList = () => {
 
 
     useEffect(() => {
-        const URL = `http://localhost:3001/catalogo`;
-        setProcesando(true)
-        fetch(URL)
-            .then((res) => res.json())
-            .then((data) => setItemList(data))
-            .catch((err) => setError(err))
-            .finally(() => setProcesando(false));
+        const db = getFirestore();
+        const catalogoCollection = db.collection('catalogo')
+        const getDataFronFirestore = async () => {
+            try {
+
+                const response = await catalogoCollection.get();
+                if (response.empty) {
+                    console.log("No hay productos")
+                }
+                setItemList(response.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+            } catch (err) {
+                setError(err)
+            } finally {
+                setProcesando(false)
+            }
+        };
+
+        getDataFronFirestore();
+
+
+
+        // const URL = `http://localhost:3001/catalogo`;
+        // setProcesando(true)
+        // fetch(URL)
+        //     .then((res) => res.json())
+        //     .then((data) => setItemList(data))
+        //     .catch((err) => setError(err))
+        //     .finally(() => setProcesando(false));
     }, []);
     const goToPulsera = () => {
         navigate("/catalogo/catalogoPulsera");
@@ -40,16 +62,19 @@ const ItemList = () => {
         return (
             <div>
                 <div className="barra-catalogo">
-                    <button className="btn-cat" onClick={goToPulsera}>
-                        Pulsera
-                    </button>
-                    <button className="btn-cat" onClick={goTotobillera}>
-                        Tobillera
-                    </button>
-                    <button className="btn-cat" onClick={goToPanuelo}>
-                        Pañuelo
-                    </button>
+
                 </div>
+                <Dropdown>
+                    <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                        Catalogo
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                        <Dropdown.Item onClick={goToPulsera}>Pulseras</Dropdown.Item>
+                        <Dropdown.Item onClick={goTotobillera}>Tobilleras</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3" onClick={goToPanuelo}>Pañuelos</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
                 <div className="contenedor-Card">
                     {itemList.map((Prod) => (
                         <Card key={Prod.id} prod={Prod} />

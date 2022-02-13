@@ -1,0 +1,8 @@
+.footerContainer{
+        background: rgb(187, 149, 162);
+        display: block;
+        width: 100vw;
+        height: 19vh;
+        color:white;
+        margin-top: 1.8vh;
+}

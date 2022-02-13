@@ -25,6 +25,7 @@ const Catalogo = [
     descripcion: "descripcion descripcion",
     precio: 120,
     img: img1,
+    
   },
   {
     id: "02",

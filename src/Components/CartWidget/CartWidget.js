@@ -11,7 +11,7 @@ function CartWidget() {
       <>
         <div>
           <Link
-            to="/carrito"
+            to="/Carrito"
             style={{ visibility: contaItems() === 0 ? "hidden" : "visible" }}
           >
             {contaItems()}

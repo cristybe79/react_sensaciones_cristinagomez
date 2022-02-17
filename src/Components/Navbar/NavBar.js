@@ -1,6 +1,6 @@
 import './NavBar.css';
 import Menu from './Menu';
-import CartWidget from '../CartWidget/CartWidget';
+
 
 
 

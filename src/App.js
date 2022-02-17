@@ -13,6 +13,7 @@ import { CartContextProvider } from './Context/CartContext';
 import ItemDetailContainer from "./Components/itemDetailContainer/itemDetailContainer";
 import GenerarOrden from "./Components/Carrito/Orden";
 import Footer from "./Components/Footer/Footer"
+import ProcesaOrden from './Components/Carrito/ProcesaOrden';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             </Route>
             <Route path="Carrito" element={<Carrito />} />
             <Route path="Orden" element={<GenerarOrden />} />
+            <Route path="procesaOrden" element={<ProcesaOrden/>}/>
             <Route path="*" element={<Error404 />} />
           </Route>
         </Routes>

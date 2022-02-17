@@ -8,7 +8,7 @@ import { CartContext } from "../../Context/CartContext.js";
 
 function ItemDetail({ product}) {
 
-  const { agregaCarrito,estaEnCarrito } = useContext(CartContext);
+  const { agregaCarrito } = useContext(CartContext);
 
     const [inicial] = useState(0);
     const [conta, setConta] = useState(inicial);

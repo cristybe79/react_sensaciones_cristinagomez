@@ -38,12 +38,19 @@ p{
 .Card-Text{
     display: block;
     margin-block-start: 1;
+    margin-top:1vh;
     margin-block-end: 1;
     margin-inline-start: 0;
     margin-inline-end: 0;
     color:slategrey;
 }
 .Card-Titulo{
-    font-weight: 500;
+    font-weight: 300;
     line-height: 1.2;
+}
+
+.botones{
+
+    margin: 1vh;
+
 }

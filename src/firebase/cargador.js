@@ -1,4 +1,5 @@
-import { getFirestore } from "../firebase";
+
+import { getFirestore } from ".";
 const producto = [
   {
     titulo: "Pulsera",
@@ -121,16 +122,47 @@ const producto = [
     img: "../images/pan005.jpg",
   },
 ];
+const usuario = [
+  {
+    apellido:"Lopez",
+    nombre: "Juan",
+    telefono: 1234564,
+    email: "juanlopez@mail.com",
+    
+  },
+    {
+    apellido:"Garcia",
+    nombre: "Ana",
+    telefono: 789456,
+    email: "garciaana@mail.com",
+    
+  },
+      {
+    apellido:"Ferrero",
+    nombre: "Maria",
+    telefono: 5647891,
+    email: "ferreromaria@mail.com",
+    
+  },
+{
+    apellido:"Sanchez",
+    nombre: "Pedro",
+    telefono: 8524561,
+    email: "sanchezpedro@mail.com",
+    
+  }
 
-const cargador = () => {
+
+]
+const Cargador = () => {
   const db = getFirestore();
-  const collection = db.collection("catalogo");
+  const collection = db.collection("usuario");
 
   const createProdutOnFirestore = () => {
-    producto.forEach((producto) => {
+    usuario.forEach((producto) => {
       collection
         .add(producto)
-        .then((res) => console.log("producto agregado", res))
+        .then((res) => console.log("usuario agregado", res))
         .catch((err) => console.log("se rompio", err));
     });
   };
@@ -143,4 +175,4 @@ const cargador = () => {
   );
 };
 
-export default cargador;
+export default Cargador;

@@ -10,14 +10,13 @@ function Card({ prod }) {
   return (
     <div className="Card">
       <div className="Card-Body">
+        <h4 className="Card-Titulo">{prod.titulo}</h4>
         <img className="Card-img" src={prod.img} alt={prod.titulo}></img>
       </div>
 
       <div className="Card-Body">
-        <h4 className="Card-Titulo">{prod.titulo}</h4>
         <p className="Card-Text">{prod.detalle}</p>
         <p className="Card-Text">${prod.precio}</p>
-        <p className="Card-Text">Cod: {prod.id}</p>
         <p className="Card-Text">Stock {prod.stock}</p>
       </div>
       <Button

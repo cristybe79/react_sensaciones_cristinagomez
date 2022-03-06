@@ -5,6 +5,8 @@ import { Button, Card, Container, Row, Col } from 'react-bootstrap';
 import { CartContext } from "../../Context/CartContext";
 import { getFirestore } from "../../firebase";
 import { useNavigate } from "react-router-dom";
+import FormCarrito from "./FormCarrito";
+import './Carrito.css';
 
 
 
@@ -12,20 +14,20 @@ import { useNavigate } from "react-router-dom";
 const Carrito = () => {
 
     const { addCarrito, removeCarrito, totalCarrito, vaciarCarrito, } = useContext(CartContext)
-        const [values, setValues] = useState({
+    const [values, setValues] = useState({
         nombre: "",
         telefono: "",
         email: "",
 
-        });
-        const navigate = useNavigate();
-        const handleInputChange = (e) => {
+    });
+    const navigate = useNavigate();
+    const handleInputChange = (e) => {
         setValues({
             ...values,
             [e.target.name]: e.target.value,
         });
     };
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (values.nombre.length < 3) {
             alert('nombre no es valido')
@@ -44,9 +46,21 @@ const Carrito = () => {
             telefono: values.telefono,
             mail: values.email
         }
-        const orden = {
-            cliente,
+        const producto = {
             items: addCarrito.map((el) => ({
+                producto: el.id,
+                titulo:el.titulo,
+                detalle: el.detalle,
+                precio: el.precio,
+                cantidad: el.cantidad,
+            }))
+        }
+        console.log(producto)
+        const orden = {
+            nombre: values.nombre,
+            items: addCarrito.map((el) => ({
+                id:el.id,
+                titulo: el.titulo,
                 detalle: el.detalle,
                 precio: el.precio,
                 cantidad: el.cantidad,
@@ -56,23 +70,18 @@ const Carrito = () => {
         console.log(orden);
         const db = getFirestore();
         const muestraOrden = db.collection("ordenes")
-        muestraOrden
-            .add(orden)
-            .then((res) => {
-                alert(`Sr/ra ${orden.cliente.nombre} orden nro ${res.id}`)
-                navigate('/orden')
-                vaciarCarrito()
-            })
-            .catch((err) => alert("No se registro la orden", err));
-        
+        const response = await muestraOrden.add(orden)
+        vaciarCarrito()
+        navigate(`/orden/${response.id}`)
+
     };
-    
-    
-    
-    
+
+
+
+
 
     return (
-        <div>
+        <div className="maininicio">
             {
                 addCarrito.length === 0 ? <>
                     <h2>No hay Productos en el Carrito</h2>
@@ -82,9 +91,9 @@ const Carrito = () => {
                         <h2>Resumen de Compra</h2>
                         {addCarrito.map((comprado) =>
                         (
-                            <Card className="resumen-detail" key={comprado.id}>
-                                <Container>
-                                    <Row>
+                            <Card key={comprado.id} className="resumenCompra">
+                                <Container >
+                                    <Row >
                                         <Col>{comprado.titulo}</Col>
                                         <Col>{comprado.detalle}</Col>
                                         <Col>{comprado.cantidad}</Col>
@@ -96,57 +105,34 @@ const Carrito = () => {
                         )
                         )}
                         <Container>
-                            <Row>
+                            <Row >
                                 <Col><h3>Total $ {totalCarrito()}</h3></Col>
                             </Row>
+                        <Link to="/catalogo"><Button className="botones" variant="secondary">volver al catalogo</Button></Link>
+                        <Button className="botones" onClick={() => vaciarCarrito()}>Limpiar</Button>
                         </Container>
 
-                        <Link to="/catalogo"><Button variant="secondary">volver al catalogo</Button></Link>
-                        <Button onClick={() => vaciarCarrito()}>Limpiar</Button>
 
                         <>
-            <div>
-                <h2>Complete sus datos</h2>
-                <hr />
-                <div>
-                    <h4>Ingrese sus Datos</h4>
-                    <form onSubmit={handleSubmit}>
-                        <label htmlFor="nombre"> nombre: </label>
-                        <input
-                            type="text"
-                            id="nombre"
-                            name="nombre"
-                            placeholder="Escriba Su nombre"
-                            value={values.nombre}
-                            onChange={handleInputChange}
-                        ></input>
-                        <label htmlFor="telefono"> telefono: </label>
-                        <input
-                            type="number"
-                            id="telefono"
-                            name="telefono"
-                            placeholder="123456"
-                            value={values.telefono}
-                            onChange={handleInputChange}
-                        ></input>
-                        <label htmlFor="telefono"> @mail: </label>
-                        <input
-                            type="text"
-                            id="email"
-                            name="email"
-                            placeholder="juan@mail.com"
-                            value={values.email}
-                            onChange={handleInputChange}
-                                        ></input>
+                            <Card className="resumenCompra">
+                                <Container>
+                                <h2>Complete sus datos</h2>
+                                <hr />
+                                <div>
+                                    <h4>Ingrese sus Datos</h4>
 
-                            <button type="submit" className="btn btn-secondary" >finalizar </button>
-
-                    </form>
+                                    <form onSubmit={handleSubmit}>
+                                        <FormCarrito  label="nombre" name="nombre" onChange={handleInputChange} value={values.nombre} placeholder="Escriba su nombre" />
+                                        <FormCarrito label="telefono" name="telefono" onChange={handleInputChange} value={values.telefono} placeholder="Escriba su numero" />
+                                        <FormCarrito label="email" name="email" onChange={handleInputChange} value={values.email} placeholder="email" />                                        
+                                        <button type="submit" className="botones btn btn-secondary" >finalizar </button></form>
                                 </div>
-            </div>
-        </>
+                                </Container>
+
+                            </Card>
+                        </>
                     </>
-                    
+
             }
         </div>
 

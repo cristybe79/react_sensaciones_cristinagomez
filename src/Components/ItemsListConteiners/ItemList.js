@@ -36,14 +36,6 @@ const ItemList = () => {
         getDataFronFirestore();
 
 
-
-        // const URL = `http://localhost:3001/catalogo`;
-        // setProcesando(true)
-        // fetch(URL)
-        //     .then((res) => res.json())
-        //     .then((data) => setItemList(data))
-        //     .catch((err) => setError(err))
-        //     .finally(() => setProcesando(false));
     }, []);
     const goToPulsera = () => {
         navigate("/catalogo/catalogoPulsera");
@@ -62,14 +54,15 @@ const ItemList = () => {
         return (
             <div>
                 <div className="barra-catalogo">
-
+                
                 </div>
                 <Dropdown>
                     <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-                        Catalogo
+                        Productos
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
+                        
                         <Dropdown.Item onClick={goToPulsera}>Pulseras</Dropdown.Item>
                         <Dropdown.Item onClick={goTotobillera}>Tobilleras</Dropdown.Item>
                         <Dropdown.Item href="#/action-3" onClick={goToPanuelo}>Pañuelos</Dropdown.Item>

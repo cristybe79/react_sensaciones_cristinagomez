@@ -5,7 +5,9 @@ import Menu from './Menu';
 
 
 
+
 function NavBar() {
+
     return <>
     
         <nav className="NavBar">

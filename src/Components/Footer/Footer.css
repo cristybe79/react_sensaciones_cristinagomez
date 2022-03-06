@@ -1,8 +1,20 @@
 .footerContainer{
         background: rgb(187, 149, 162);
         display: block;
-        width: 100vw;
+        width: 99vw;
         height: 19vh;
         color:white;
         margin-top: 1.8vh;
+        
+
+}
+
+.icon-fo{
+        width: 2vw;
+        padding-left: 1vw;
+        margin-top: 5vh;
+}
+
+.svg-inline--fa{
+        height: 2em;
 }

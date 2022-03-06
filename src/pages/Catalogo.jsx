@@ -1,12 +1,11 @@
 import ItemsListConteiner from "../Components/ItemsListConteiners/ItemsListContainers";
-
+import "./HomePage.css"
 
 
 
 const Catalogo = () => {
     return (
-        <div>
-            <h1>Catalogo</h1>
+        <div className="maininicio">
             
             <ItemsListConteiner />
         </div>

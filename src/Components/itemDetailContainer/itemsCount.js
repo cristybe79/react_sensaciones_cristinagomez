@@ -2,7 +2,7 @@
 import './itemsCount.css';
 
 
-const ItemsCount = ({ stock,inicial,conta,setConta }) => {
+const ItemsCount = ({ stock,conta,setConta }) => {
 
 
     const restar = () => {
@@ -19,15 +19,9 @@ const ItemsCount = ({ stock,inicial,conta,setConta }) => {
     return (
       <div>
         <div className="contador">
-          <button
-            className="bot-restar"
-            onClick={restar}
-          >
-            -
-          </button>
+          <button className="bot-restar"onClick={restar}>-</button>
           <p className="numero">{conta}</p>
-          <button className="bot-sumar" onClick={sumar}>
-            +
+          <button className="bot-sumar" onClick={sumar}>+
           </button>
 
         </div>

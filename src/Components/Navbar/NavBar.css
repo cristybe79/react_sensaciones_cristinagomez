@@ -3,11 +3,14 @@ nav{
     height: 10%;
 }
 .App-logo {
-    height: 10vmin;
+
     display: block;
     pointer-events: none;
     text-align: left;
     padding-top: 2vh;
+    width: 30vw;
+    margin-left: 30vw;
+
     
 }
 
@@ -31,30 +34,41 @@ ul{
 }
 .Menu{
         background: rgb(187, 149, 162);
-        display: block;
-        width: 100vw;
-        height: 17vh;
-        padding-left: 3vw;
+        display: flex;
+        width: 99vw;
+        height: 25vh;
         color:white;
 }
 
 .Menu-link{
-    width: 50vw;
+    margin-left: 60vw;
     display: flex;
     color:white;
+    width: 10vw;
 
 
 }
 
 .link-item{
     display: flex;
-    margin-left: 30vh;
-    width: 50vw;
+    margin-left: 10vh;
+    width: 2vw;
     
     
 }
-.link-li{
-    margin-right: 5vw;
-    width: 10vw;
+
+
+.Icono-Cart{
+    width: 2vw;
+    pointer-events: none;
+    border: none;
+    color: rgb(117, 107, 107);
+    margin-left: 2vw;
+    margin-bottom: 2vh;
+    color:black;
+
+
+
+    
 
 }

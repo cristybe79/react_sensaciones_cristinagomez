@@ -19,10 +19,7 @@ function ItemDetail({ product}) {
 
   };
   
-  // const estilo = {
-  //   btnAgrego: estaEnCarrito(id) ? "btn btn-danger m-2" : "btn btn-success m-2",
-  //   btnTerminar: `btn btn-success ${!estaEnCarrito(id) && "desactivado"}`,
-  // };
+
 
 
   return (
@@ -36,7 +33,6 @@ function ItemDetail({ product}) {
       </div>
 
       <div className="Card-BodyDetail">
-        <p className="Card-TextDetail">Cod:{product.id}</p>
         <h3 className="Card-TituloDetail">{product.titulo}</h3>
         <h4 className="Card-TituloDetail">{product.detalle}</h4>
         <p className="Card-TextDetail">{product.descripcion}</p>
@@ -51,16 +47,31 @@ function ItemDetail({ product}) {
         </p>
         {agregado ? (
           <Link to="/Carrito">
-            <Button>Terminar Compra</Button>
+            <Button className="botones">Terminar Compra</Button>
           </Link>
-        ) : (<div>
-            
-          <ItemsCount stock={product.stock} inicial={1} onClick={onAdd} conta={conta} setConta={setConta}/>
-          <button className="btn btn-secondary p-2" disabled={conta===0} onClick={()=>onAdd(conta)}>Agregar</button>
-        </div>
+        ) : (
+          <div>
+            <ItemsCount
+              stock={product.stock}
+              inicial={1}
+              onClick={onAdd}
+              conta={conta}
+              setConta={setConta}
+            />
+            <button
+              className="btn btn-secondary p-2 botones"
+              disabled={conta === 0}
+              onClick={() => onAdd(conta)}
+            >
+              Agregar
+            </button>
+          </div>
         )}
         <Link to="/catalogo">
-          <Button variant="secondary"> Volver al Catalogo</Button>
+          <Button className="botones" variant="secondary">
+            {" "}
+            Volver al Catalogo
+          </Button>
         </Link>
       </div>
     </div>

@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 import './Catalogo.css'
 import { getFirestore } from "../firebase";
 
+
+
 const ProductoPanuelo = () => {
     const [itemList, setItemList] = useState([]);
     const [procesando, setProcesando] = useState(false);
     const [error, setError] = useState(null)
-
+    
 
     useEffect(() => {
         const db = getFirestore();
@@ -25,7 +27,7 @@ const ProductoPanuelo = () => {
                 setError(err)
             } finally {
                 setProcesando(false)
-            }
+            } 
         };
 
         getDataFronFirestore();

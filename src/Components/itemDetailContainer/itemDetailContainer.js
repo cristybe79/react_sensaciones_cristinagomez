@@ -23,7 +23,7 @@ const ItemDetailContainer = () => {
 
 
   }, [catalogoId]);
-
+  console.log(setIsLoanding)
 
 
   if (isLoanding || !product) return <h2>Cargando...</h2>;

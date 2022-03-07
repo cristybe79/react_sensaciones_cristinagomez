@@ -2,12 +2,8 @@ import logo from "../../img/sensaciones (2).png";
 import "./NavBar.css";
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faUser } from "@fortawesome/free-solid-svg-icons";
-// import Swal from "sweetalert2";
 import Login from "./Login";
-// import { useContext } from "react";
-// import { CartContext } from "../../Context/CartContext";
+
 
 const Menu = () => {
   

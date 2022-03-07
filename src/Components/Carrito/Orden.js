@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { getFirestore } from "../../firebase/index";
 import { Link, useParams } from "react-router-dom";
 import { Card, Row,Col } from "react-bootstrap";
@@ -32,7 +32,7 @@ const GenerarOrden = () => {
     <div className="maininicio">
       <Card className="ordenCompleta">
         <Row>
-            <h3>Gracias por su compra</h3>
+          <h3 className="titulo2">Gracias por su compra</h3>
           <Col className="orden1">
             <h5>{orden.nombre}</h5>
             <h6>Orden Nro: {orden.id}</h6>
@@ -52,10 +52,9 @@ const GenerarOrden = () => {
               })}
             </div>
           </Col>
-            <Link to="/">
-              <h4>Volver al Inicio</h4>
-            </Link>
-
+          <Link to="/">
+            <h4>Volver al Inicio</h4>
+          </Link>
         </Row>
       </Card>
     </div>

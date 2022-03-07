@@ -32,30 +32,33 @@ const ProductoTobillera = () => {
     console.log(setItemList)
 
 
-    if (procesando) return <h2>Cargando...</h2>;
+    if (procesando) { return <h2>Cargando...</h2>; }
+    else if (error) {
+        return <h3>Error de Proceso</h3>
+    } else
+        return (
+            <div className="maininicio">
+                <h1 className="titulo2">Tobilleras</h1>
+                <div>
 
-    return (
-        <div >
-            <h1>Tobilleras</h1>
-            <div>
+                    <Link className="link-catalogo" to="/catalogo">volver</Link>
+                    <Link className="link-catalogo" to="/catalogo/catalogoPanuelo">Panuelo</Link>
+                    <Link className="link-catalogo" to="/catalogo/catalogoPulsera">Pulsera</Link>
+                    <Link className="link-catalogo" to="/catalogo/catalogoCollar">Collar</Link>
+                </div>
+                <div className="contenedor-Card">
 
-                <Link className="link-catalogo" to="/catalogo">volver</Link>
-                <Link className="link-catalogo" to="/catalogo/catalogoPanuelo">Panuelo</Link>
-                <Link className="link-catalogo" to="/catalogo/catalogoPulsera">Pulsera</Link>
+                    {
+                        itemList.map((Prod) => (
+                            <Card
+                                key={Prod.id}
+                                prod={Prod}
+                            />
+                        ))
+                    }
+                </div>
             </div>
-            <div className="contenedor-Card">
-
-                {
-                    itemList.map((Prod) => (
-                        <Card
-                            key={Prod.id}
-                            prod={Prod}
-                        />
-                    ))
-                }
-            </div>
-        </div>
-    );
+        );
 };
 
 export default ProductoTobillera; 

@@ -4,7 +4,7 @@
         width: 99vw;
         height: 19vh;
         color:white;
-        margin-top: 1.8vh;
+
         
 
 }
@@ -17,4 +17,9 @@
 
 .svg-inline--fa{
         height: 2em;
+}
+
+.contactoFooter{
+        margin-left: 10vw;
+        text-align: center;
 }

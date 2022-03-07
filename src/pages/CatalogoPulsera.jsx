@@ -34,31 +34,34 @@ const ProductoPulsera = () => {
 
     console.log(setItemList)
 
-    if (procesando) return <h2>Cargando...</h2>;
+    if (procesando) { return <h2>Cargando...</h2>; }
+    else if (error) {
+        return <h3>Error de Proceso</h3>
+    } else
 
-    return (
-        <div >
-            <h1>Pulsera</h1>
-            <div>
-                <Link className="link-catalogo" to="/catalogo">volver</Link>
-                <Link className="link-catalogo" to="/catalogo/catalogoPanuelo">Panuelo</Link>
-                <Link className="link-catalogo" to="/catalogo/catalogoTobillera">Tobillera</Link>
+        return (
+            <div className="maininicio">
+                <h1 className="titulo2">Pulsera</h1>
+                <div>
+                    <Link className="link-catalogo" to="/catalogo">volver</Link>
+                    <Link className="link-catalogo" to="/catalogo/catalogoPanuelo">Panuelo</Link>
+                    <Link className="link-catalogo" to="/catalogo/catalogoTobillera">Tobillera</Link>
+                    <Link className="link-catalogo" to="/catalogo/catalogoCollar">Collares</Link>
+                </div>
+                <div className="contenedor-Card">
 
+
+                    {
+                        itemList.map((Prod) => (
+                            <Card
+                                key={Prod.id}
+                                prod={Prod}
+                            />
+                        ))
+                    }
+                </div>
             </div>
-            <div className="contenedor-Card">
-
-
-                {
-                    itemList.map((Prod) => (
-                        <Card
-                            key={Prod.id}
-                            prod={Prod}
-                        />
-                    ))
-                }
-            </div>
-        </div>
-    );
+        );
 };
 
 export default ProductoPulsera; 

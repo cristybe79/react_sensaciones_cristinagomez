@@ -10,7 +10,7 @@ const ProductoPanuelo = () => {
     const [itemList, setItemList] = useState([]);
     const [procesando, setProcesando] = useState(false);
     const [error, setError] = useState(null)
-    
+
 
     useEffect(() => {
         const db = getFirestore();
@@ -27,7 +27,7 @@ const ProductoPanuelo = () => {
                 setError(err)
             } finally {
                 setProcesando(false)
-            } 
+            }
         };
 
         getDataFronFirestore();
@@ -37,30 +37,32 @@ const ProductoPanuelo = () => {
     console.log(setItemList)
 
 
-    if (procesando) return <h2>Cargando...</h2>;
+    if (procesando) { return <h2>Cargando...</h2>; }
+    else if (error) {
+        return <h3>Error de Proceso</h3>
+    } else
+        return (
+            <div className="maininicio">
+                <h1 className="titulo2">Pañuelos</h1>
+                <div>
+                    <Link className="link-catalogo" to="/catalogo">volver</Link>
+                    <Link className="link-catalogo" to="/catalogo/catalogoPulsera">Pulsera</Link>
+                    <Link className="link-catalogo" to="/catalogo/catalogoTobillera">Tobillera</Link>
+                    <Link className="link-catalogo" to="/catalogo/catalogoCollar">Collar</Link>
+                </div>
+                <div className="contenedor-Card">
 
-    return (
-        <div>
-            <h1>Pañuelos</h1>
-            <div>
-                <Link className="link-catalogo" to="/catalogo">volver</Link>
-                <Link className="link-catalogo" to="/catalogo/catalogoPulsera">Pulsera</Link>
-                <Link className="link-catalogo" to="/catalogo/catalogoTobillera">Tobillera</Link>
-
+                    {
+                        itemList.map((Prod) => (
+                            <Card
+                                key={Prod.id}
+                                prod={Prod}
+                            />
+                        ))
+                    }
+                </div>
             </div>
-            <div className="contenedor-Card">
-
-                {
-                    itemList.map((Prod) => (
-                        <Card
-                            key={Prod.id}
-                            prod={Prod}
-                        />
-                    ))
-                }
-            </div>
-        </div>
-    );
+        );
 };
 
 export default ProductoPanuelo; 

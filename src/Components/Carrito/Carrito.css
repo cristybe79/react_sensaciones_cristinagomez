@@ -1,21 +1,26 @@
 .resumenCompra{
     width: 80vw;
-    margin-top: 5vh;
     margin-left: 10vw;
+    opacity: 0.7;
+    color: rgb(12, 11, 11);
+    
 }
+
 .ordenCompleta{
-    margin-left: 3vw;
+    margin-left: 10vw;
     max-width: 70vw;
-    min-height: 52vh;
-    padding: 2vh;
-    opacity: 0.5;
+    min-height: 60vh;
+    margin-top: 5vh;
+    padding: 5vh;
+    opacity: 0.7;
     color: rgb(12, 11, 11);
 
 }
 .orden1{    
-    padding-top: 10vh;
-    margin-left: 10vw;
-    background-color: rgb(231, 225, 218);
+    padding-top: 5vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    background-color: rgba(231, 225, 218, 0.76);
     height: 100%;
 
 }
@@ -29,6 +34,7 @@
 }
 .orden1 p,h3,h4,h5,h6{
     margin-top: 2vh;
+    margin-left: 2vh;
     color: rgb(25, 24, 27);
     line-height: 1.5;
 

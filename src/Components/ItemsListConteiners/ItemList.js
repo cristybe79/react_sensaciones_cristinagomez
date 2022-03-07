@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Card from "./Card";
 import "./Card.css";
 import "./ItemsListConteiners.css";
-import { getFirestore } from "../../firebase/index"
-import { Dropdown } from "react-bootstrap"
+import { getFirestore } from "../../firebase/index";
+import { Dropdown } from "react-bootstrap";
+
 
 
 
@@ -20,7 +21,6 @@ const ItemList = () => {
         const catalogoCollection = db.collection('catalogo')
         const getDataFronFirestore = async () => {
             try {
-
                 const response = await catalogoCollection.get();
                 if (response.empty) {
                     console.log("No hay productos")
@@ -46,26 +46,36 @@ const ItemList = () => {
     const goToPanuelo = () => {
         navigate("/catalogo/catalogoPanuelo");
     };
+    const goToCollar = () => {
+        navigate("/catalogo/catalogoCollar");
+    };
     if (procesando) {
-        return <h2>Procesando...</h2>;
+        return <h2 className="titulo2">Procesando...</h2>;
     } else if (error) {
-        return <h3>Error de Proceso</h3>
+        return <h3 className="titulo2">Error de Proceso</h3>;
     } else
         return (
-            <div>
+            <div >
                 <div className="barra-catalogo">
-                
+                    <Link to="/">
+                        <h4>Volver al Inicio</h4>
+                    </Link>
                 </div>
                 <Dropdown>
                     <Dropdown.Toggle variant="secondary" id="dropdown-basic">
                         Productos
                     </Dropdown.Toggle>
-
                     <Dropdown.Menu>
-                        
                         <Dropdown.Item onClick={goToPulsera}>Pulseras</Dropdown.Item>
-                        <Dropdown.Item onClick={goTotobillera}>Tobilleras</Dropdown.Item>
-                        <Dropdown.Item href="#/action-3" onClick={goToPanuelo}>Pañuelos</Dropdown.Item>
+                        <Dropdown.Item onClick={goTotobillera}>
+                            Tobilleras
+                        </Dropdown.Item>
+                        <Dropdown.Item href="#/action-3" onClick={goToCollar}>
+                            Collares
+                        </Dropdown.Item>
+                        <Dropdown.Item href="#/action-3" onClick={goToPanuelo}>
+                            Pañuelos
+                        </Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
                 <div className="contenedor-Card">

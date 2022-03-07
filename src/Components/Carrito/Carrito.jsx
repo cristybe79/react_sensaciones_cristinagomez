@@ -41,15 +41,15 @@ const Carrito = () => {
             alert('mail no valido')
             return
         }
-        const cliente = {
-            nombre: values.nombre,
-            telefono: values.telefono,
-            mail: values.email
-        }
+        // const cliente = {
+        //     nombre: values.nombre,
+        //     telefono: values.telefono,
+        //     mail: values.email
+        // }
         const producto = {
             items: addCarrito.map((el) => ({
                 producto: el.id,
-                titulo:el.titulo,
+                titulo: el.titulo,
                 detalle: el.detalle,
                 precio: el.precio,
                 cantidad: el.cantidad,
@@ -59,7 +59,7 @@ const Carrito = () => {
         const orden = {
             nombre: values.nombre,
             items: addCarrito.map((el) => ({
-                id:el.id,
+                id: el.id,
                 titulo: el.titulo,
                 detalle: el.detalle,
                 precio: el.precio,
@@ -88,7 +88,7 @@ const Carrito = () => {
                     <Link to="/"><Button>Ir al Catalogo</Button></Link>
                 </> :
                     <>
-                        <h2>Resumen de Compra</h2>
+                        <h2 className="titulo2">Resumen de Compra</h2>
                         {addCarrito.map((comprado) =>
                         (
                             <Card key={comprado.id} className="resumenCompra">
@@ -108,25 +108,25 @@ const Carrito = () => {
                             <Row >
                                 <Col><h3>Total $ {totalCarrito()}</h3></Col>
                             </Row>
-                        <Link to="/catalogo"><Button className="botones" variant="secondary">volver al catalogo</Button></Link>
-                        <Button className="botones" onClick={() => vaciarCarrito()}>Limpiar</Button>
+                            <Link to="/catalogo"><Button className="botones" variant="secondary">volver al catalogo</Button></Link>
+                            <Button className="botones" onClick={() => vaciarCarrito()}>Limpiar</Button>
                         </Container>
 
 
                         <>
                             <Card className="resumenCompra">
                                 <Container>
-                                <h2>Complete sus datos</h2>
-                                <hr />
-                                <div>
-                                    <h4>Ingrese sus Datos</h4>
+                                    <h2>Complete sus datos</h2>
+                                    <hr />
+                                    <div>
+                                        <h4>Ingrese sus Datos</h4>
 
-                                    <form onSubmit={handleSubmit}>
-                                        <FormCarrito  label="nombre" name="nombre" onChange={handleInputChange} value={values.nombre} placeholder="Escriba su nombre" />
-                                        <FormCarrito label="telefono" name="telefono" onChange={handleInputChange} value={values.telefono} placeholder="Escriba su numero" />
-                                        <FormCarrito label="email" name="email" onChange={handleInputChange} value={values.email} placeholder="email" />                                        
-                                        <button type="submit" className="botones btn btn-secondary" >finalizar </button></form>
-                                </div>
+                                        <form onSubmit={handleSubmit}>
+                                            <FormCarrito label="nombre" name="nombre" onChange={handleInputChange} value={values.nombre} placeholder="Escriba su nombre" />
+                                            <FormCarrito label="telefono" name="telefono" onChange={handleInputChange} value={values.telefono} placeholder="Escriba su numero" />
+                                            <FormCarrito label="email" name="email" onChange={handleInputChange} value={values.email} placeholder="email" />
+                                            <button type="submit" className="botones btn btn-secondary" >finalizar </button></form>
+                                    </div>
                                 </Container>
 
                             </Card>
